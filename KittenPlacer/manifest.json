@@ -1,0 +1,21 @@
+{
+  "manifest_version": 2,
+  "name": "PlaceKitten",
+  "version": "0.1",
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": ["content_scripts/kitten.js"],
+      "web_accessable_images": [
+        "assets/images/mvimg_20171221_181451_1024.jpg",
+        "assets/images/img-20171230-wa0014.jpg",
+        "assets/images/image_uploaded_from_ios_1024-1.jpg",
+        "assets/images/00100dportrait_00100_burst20180101104638275_cover_1024.jpg",
+        "assets/images/image_uploaded_from_ios_1024.jpg",
+        "assets/images/00100dportrait_00100_burst20180112101546935_cover_1024.jpg"
+      ]
+    }
+  ]
+}
