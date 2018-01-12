@@ -14,9 +14,13 @@ let imgs = document.getElementsByTagName('img');
 console.log(imgs);
 
 for (let element of imgs) {
+  // Gets a random int
   let r = Math.floor(Math.random() * filenames.length);
-  let file = filenames[r];
+  // Selects specific file to be used
+  let file = 'assets/images/' + filenames[r];
+  // Gets the url of the extensions file
   let url = chrome.extension.getURL(file);
+  // Replaces image
   element.src = url;
   console.log(element.src);
 }
