@@ -1,14 +1,28 @@
 
 
 var s = function (sketch) {
-  this.on = false;
-
+  var userInput;
   sketch.setup = function () {
     sketch.noCanvas();
+    userInput = sketch.select('#userinput');
+    userInput.input(newText) // Every time the user presses a key
   };
 
-  sketch.draw = function () {
-    
+  function newText() {
+    let params = {
+      active: true,
+      currentWindow: true
+    };
+
+    chrome.tabs.query(params, tabs => {
+      console.log(tabs)
+      // Send a message to the content script.
+      let message = userInput.value();
+      let msg = {
+        txt: message
+      };
+      chrome.tabs.sendMessage(tabs[0].id, msg);
+    });
   }
 };
 

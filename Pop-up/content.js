@@ -1,5 +1,5 @@
 
-console.log("Chrome extension is working")
+console.log("Chrome extension is working");
 
 let paragraphs = document.getElementsByTagName('p');
 
@@ -11,11 +11,7 @@ let paragraphs = document.getElementsByTagName('p');
 chrome.runtime.onMessage.addListener(gotMessage);
 
 function gotMessage(message, sender, sendResponse) {
-  console.log(message);
-  if (message === "hello") {
-    let paragraphs = document.getElementsByTagName('p');
-    for (elt of paragraphs) {
-      elt.style['background-color'] = '#FF00FF';
-    }
+  for (var elt of paragraphs) {
+    elt.innerHTML = message.txt;
   }
 }
