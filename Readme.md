@@ -135,3 +135,9 @@ Links to an HTML page that it then displays on click.
     "default_title": "A popup will come here."
   }
 ```
+
+The page is reloaded each time its clicked, it does not run in the background. Because of that, in order to debug it you'll need to right click on the pop-up and select inspect, which will show you the console for the pop-up in particular.
+
+### Pop-up messaging
+Because the pop-up takes place in its own little realm, you'll need to integrate messaging in order to communicate between the front and the back end. Background script, content script, and pop-up all exist within their own bubbles/ own scopes, so global variables wont work either. 
+
