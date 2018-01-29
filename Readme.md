@@ -122,3 +122,6 @@ function gotMessage(message, sender, sendResponse) {
 ```
 
 After recieving a message, you can then use that message to trigger changes to your content based on the extensions content script.
+
+## Pop-ups
+A pop up is a page that you can launch on top of the browser, using a browser action such as clicking a button.
