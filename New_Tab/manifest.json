@@ -1,0 +1,8 @@
+{
+  "manifest_version": 2,
+  "name": "Chrome Extension Practice",
+  "version": "0.02",
+  "chrome_url_overrides" : {
+    "newtab": "index.html"
+  },
+}
