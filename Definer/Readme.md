@@ -122,30 +122,3 @@ function gotMessage(message, sender, sendResponse) {
 ```
 
 After recieving a message, you can then use that message to trigger changes to your content based on the extensions content script.
-
-## Pop-ups
-A pop up is a page that you can launch on top of the browser, using a browser action such as clicking a button.
-Links to an HTML page that it then displays on click.
-
-```javascript
-  // ... manifest.json
-  "browser_action": {
-    "default_icon": "assets/favicon.png",
-    "default_popup": "popup.html",
-    "default_title": "A popup will come here."
-  }
-```
-
-The page is reloaded each time its clicked, it does not run in the background. Because of that, in order to debug it you'll need to right click on the pop-up and select inspect, which will show you the console for the pop-up in particular.
-
-### Pop-up messaging
-Because the pop-up takes place in its own little realm, you'll need to integrate messaging in order to communicate between the front and the back end. Background script, content script, and pop-up all exist within their own bubbles/ own scopes, so global variables wont work either. 
-
-## New Tab Override
-With an extension, you can recreate the new tab page (along with some other pages) using chrome URL overrides, like so:
-
-```javascript
-  "chrome_url_overrides" : {
-    "pageToOverride": "overridingPage.html"
-  }
-```
