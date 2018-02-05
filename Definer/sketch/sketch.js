@@ -3,27 +3,14 @@
 var s = function (sketch) {
   var userInput;
   sketch.setup = function () {
-    sketch.noCanvas();
-    userInput = sketch.select('#userinput');
-    userInput.input(newText) // Every time the user presses a key
+    noCanvas();
+
+    let backgroundPage = chrome.extension.backgroundPage();
+    let word = bgpage.word;
+
+    let url = `http://api.wordnik.com:80/v4/word.json/${word}/definitions
+                ?limit=1&includeRelated=false&sourceDictionaries=webster&useCanonical=true&includeTags=false&api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5`;
   };
-
-  function newText() {
-    let params = {
-      active: true,
-      currentWindow: true
-    };
-
-    chrome.tabs.query(params, tabs => {
-      console.log(tabs)
-      // Send a message to the content script.
-      let message = userInput.value();
-      let msg = {
-        txt: message
-      };
-      chrome.tabs.sendMessage(tabs[0].id, msg);
-    });
-  }
 };
 
 var myp5 = new p5(s);

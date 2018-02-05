@@ -1,14 +1,9 @@
 console.log("Background Running");
 
 
-chrome.browserAction.onClicked.addListener(buttonClicked);
+window.word = "Ben";
 
-// Custom callback to dictate action
-  // tab callback gives information about current tab
-function buttonClicked(tab) {
-  let message = {
-    text: 'hello',
-  };
-
-  chrome.tabs.sendMessage(tab.id, message.text);
-}
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+  console.log(request);
+  window.word = request.text;
+});
